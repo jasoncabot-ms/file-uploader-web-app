@@ -38,5 +38,9 @@ pip install flask
 pip install flask_wtf
 pip install email-validator
 pip freeze > requirements.txt
+
+# Generate a secret key
+python -c 'import os; print(os.urandom(24))' > datacollec
+tor/config/development.cfg
 ````
     
