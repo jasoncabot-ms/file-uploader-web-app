@@ -38,24 +38,18 @@
                 "name": "[parameters('siteName')]",
                 "siteConfig": {
                     "linuxFxVersion": "[variables('linuxFxVersion')]",
-                    "alwaysOn": "[variables('alwaysOn')]"
+                    "alwaysOn": "[variables('alwaysOn')]",
+                    "appSettings": [
+                        {
+                            "name": "DATACOLLECTOR_SETTINGS_PATH",
+                            "value": "config/development.cfg"
+                        }
+                    ]
                 },
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                 "clientAffinityEnabled": false
             },
             "resources": [
-                {
-                    "apiVersion": "2018-02-01",
-                    "type": "config",
-                    "name": "web",
-                    "dependsOn": [
-                        "[concat('Microsoft.Web/Sites/', parameters('siteName'))]"
-                    ],
-                    "properties": {
-                        "appSettings": [
-                        ]
-                    }
-                },
                 {
                     "apiVersion": "2018-02-01",
                     "name": "web",
