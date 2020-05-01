@@ -52,6 +52,19 @@
             "resources": [
                 {
                     "apiVersion": "2018-02-01",
+                    "type": "config",
+                    "name": "web",
+                    "dependsOn": [
+                        "[concat('Microsoft.Web/Sites/', parameters('siteName'))]"
+                    ],
+                    "properties": {
+                        "appSettings": [
+
+                        ]
+                    }
+                },
+                {
+                    "apiVersion": "2018-02-01",
                     "name": "web",
                     "type": "sourcecontrols",
                     "dependsOn": [
