@@ -1,0 +1,42 @@
+{%- extends "base.html" %}
+
+{% block container %}
+<div class="col-md-12">
+  {% for field, errors in form.errors.items() %}
+  <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+        aria-hidden="true">&times;</span></button>
+    {{ form[field].label }}: {{ ', '.join(errors) }}
+  </div>
+  {% endfor %}
+
+  <div class="col-md-auto">
+    <h1>Data Form</h1>
+    <p>The fields, validations and requirements can be changed with small modifications to the code</p>
+    <p>A few different types of fields are included as an example</p>
+    <hr />
+    <form method="POST" enctype="multipart/form-data">
+      {{ form.csrf_token }}
+
+      <div class="form-group">
+        {{ form.name.label }}
+        {{ form.name(size=20, class_="form-control") }}
+      </div>
+      <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email(class_="form-control") }}
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        {{ form.body.label }}
+        {{ form.body(rows=3, class_="form-control") }}
+      </div>
+      <div class="form-group">
+        {{ form.upload.label }}
+        {{ form.upload(class_="form-control-file") }}
+      </div>
+
+      {{ form.submit(class_="btn btn-primary") }}
+    </form>
+  </div>
+  {%- endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block container %}
+  <h1>Data Collector</h1>
+  <p>A web application to demonstrate how to collect and process data from a web browser <strong>on the server</strong></p>
+  <p>To get started follow these steps:
+    <ol>
+      <li><strong>Complete</strong> the required fields</li>
+      <li><a href="{{ url_for('frontend.upload') }}">Upload</a> some data</li>
+      <li><strong>Relax</strong></li>
+    </ol>
+  </p>
+     
+{% endblock %}
