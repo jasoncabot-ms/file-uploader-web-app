@@ -17,8 +17,8 @@
     },
     "variables": {
         "alwaysOn": false,
-        "sku": "Free",
-        "skuCode": "F1",
+        "sku": "Standard",
+        "skuCode": "S1",
         "workerSize": "0",
         "workerSizeId": "0",
         "numberOfWorkers": "1",
