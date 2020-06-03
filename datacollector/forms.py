@@ -11,7 +11,7 @@ class UploadForm(FlaskForm):
     body = TextAreaField('Message', [
         DataRequired(),
         Length(min=4, message=('Your message is too short.'))])
-    upload = FileField('Data file', validators=[
+    upload = FileField('Data file (.csv only)', validators=[
         FileRequired(),
         FileAllowed(['csv'], 'CSV Files Only')
     ])    
